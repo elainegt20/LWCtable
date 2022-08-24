@@ -1,0 +1,55 @@
+<template>
+
+
+    <div style="width:1500px">
+            <lightning-card>
+                <div class="slds-no-print">
+                    <lightning-card title = "Accounts and related Contacts Notes" class="slds-m-around_medium" >
+                        <div class="slds-form-element" style = "width:500px; padding-left: 10px">
+                            <label class="slds-form-element__label" for="text-input-id-1">*click anywhere in the box to search*</label>
+                            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right">
+                                <lightning-icon size="x-small" class="slds-icon slds-input__icon slds-input__icon_right slds-icon-text-default" icon-name="utility:search"></lightning-icon>
+                                <input type="search" id="text-input-id-1" placeholder="search an account" class="slds-input" onclick={handleSearch}/>
+                            </div>
+                        </div>
+
+                
+                        
+                        
+                    </lightning-card>
+
+                </div>
+
+                    <lightning-datatable key-field="id" 
+                        data={displayResult}
+                        columns={columns}
+                        
+                    >
+                    </lightning-datatable>
+                    <div class="slds-no-print">
+                        <div>
+                            <p class="slds-maround_medium">{startingRecord} to {endingRecord} of {totalRecordCount}.Page {page} of {totalPage}</p>
+                            <c-chils-Paginator onprevious={prevHandle} onnext={nextHandle}></c-chils-Paginator>
+                        <lightning-card>
+                            <lightning-button
+                            style = "padding-left: 10px"
+                            label="Download PDF"
+                            onclick={handlePDF}
+                            ></lightning-button>
+                        </lightning-card>
+                        </div>
+                        
+
+                    
+                    </div>
+
+                    
+
+                    
+                
+                    
+                                
+            </lightning-card>
+
+    </div>
+</template>
